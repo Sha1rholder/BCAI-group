@@ -1,0 +1,17 @@
+[project]
+name = "bcai"
+version = "0.1.0"
+requires-python = ">=3.15"
+dependencies = ["numpy", "polars", "scikit-learn", "scipy", "threadpoolctl"]
+
+[dependency-groups]
+dev = ["ruff", "ty"]
+
+[tool.ruff]
+format.indent-style = "tab"
+
+[tool.ty.environment]
+python = ".venv"
+
+[tool.uv]
+package = false

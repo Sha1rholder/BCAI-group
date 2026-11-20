@@ -1,0 +1,31 @@
+# BCAI4 Workshop 6 – Biometric analyses
+
+Gedi Lukšys, October 23, 2026, 14:00-16:50
+
+## Goals
+
+- Become familiarised with biometric analyses using iMotions
+
+- Perform some preliminary analyses of biometric (eye tracking, heart rate) data in the schema task
+
+After you went through the materials of last week’s workshops, we will practice how to analyse biometric data from the schema project that you have already been introduced and (hopefully) did some behavioural analyses since 2 weeks ago (if you haven’t yet, please do them ASAP). In this part of the workshop we focus on pupil dilation and heart rates, although these are not the only biometric measurements available.
+
+To get familiarised with iMotions, please watch an introductory video with iMotions demo from a joint lab meeting with my collaborator Robin Hill who is an expert of these techniques. We show it using MyNewsScan and the schema task as examples, but only schema task data will be provided today, although MyNewsScan biometric data will be made available if anyone would like to have your group project analysing it, together with behavioural data I provided in week 1.
+
+Biometric data pre-processing, which is quite complicated, involves matching the iMotions timescale with an external timescale and matching eye tracking coordinates with objects on the screen (it’s not as easy as it sounds, as there are various measurement errors, so we cannot simply map to the objects as they appear on the screen but need to perform clustering and other adjustments). This pre-processing is overly technical and not within the scope of this course. However, you can see examples of raw data in files paintings_eyetracking_example.csv (where you find pupillometry data of one participant in the paintings task) and quotes_shimmer_example.csv (where you find shimmer data of one participant in the quotes task, which includes heart rate as well as Galvanic Skin Response data).
+
+For actual analyses we provide pre-processed data. Files PaintingsPupil.xlsx and QuotesPupil.xlsx contain information about pupil sizes/dilations together with participant ID, phase (0 – exploration, 1 – decision), round, risk (1 – high, 0 – low) and its change after the break (-1 – high-to-low, 1 – low-to-high, 0 no change), novelty, performance in that round, Reward Prediction Error and Average Expected Performance, as discussed in the schema workshop, and time of each session on the scale of 0 to 1.
+
+Pupil size is considered a marker of attentional engagement, which may reflect how much participants are involved in the task, so higher values may indicate better engagement/focus whereas lower ones may reflect that participants are giving up (perhaps because of not doing well) or not paying enough attention for other reasons. However, it is also affected by a variety of other non-cognitive factors like the distance to the screen and the focus on materials participants view. For this reason, we normalised pupil sizes for each participant by subtracting the mean value during the first 10 min of their task performance, so that we could focus on any changes that happen during the task as opposed to absolute values. For each round we give you 3 values: median pupil size during the exploration phase, median value during the first decision screen and during the second decision screen. Ideally, we could give you the entire time course (as you can see in the raw data files), but then the file size becomes very large, and the medians seem to reflect the relevant differences well.
+
+Files PaintingsHeart.xlsx and QuotesHeart.xlsx contain the data in the similar format and with the same related information for heart rates. As you may have experienced during your IBMS1 practical ☺ heart rate can be a measure of stress, although it is also influenced by other factors. Hence, using this data and statistical techniques you know (e.g. mixed effects models and machine learning techniques), you could investigate how pupil sizes and heart rates are affected by different factors in the experiment, such as learning progress (time, round), performance success (AEP, RPE), risk and novelty conditions, and task phases (decision/exploration).
+
+The 2nd half of the data in this workshop is about tracking eye movements. We particularly focus on the decision phase, where participants need to select 4 items out of 20 and in order to do so they observe/evaluate a number of items. So we can obtain information like which items they are looking at and when, which may provide us insights into the decision making process, which we discussed in the lecture as well as the tutorial about modelling.
+
+Compared to the previous median-based data of pupil sizes and heart rates, this data is much bigger, so there is a file for each participant, Paintings_ID_eyetracking.csv and Quotes_ID_eyetracking.csv, where ID is participant ID. The bulk of the file contains raw eye tracking information such as time of each record, and recorded gaze location for left and right eyes. The columns that you should focus on in your analyses are decphase and round (each round has 2 decision screens, which decphase indicates), choice (which choice the participant is making, 1 to 4), picID (which item the participant is looking at, 1 to 20 or 0 if none detected), schemas (which schema number this item belongs to, 1 to 10 or 0) and chosen (which item the participant ultimately chooses in that selection). Using this data, you could do some simple analyses, e.g. calculating how much time the participants spend looking at the items they choose in each selection (or including items from the same schema), how many items or schemas they view in each selection, and how these change with learning.
+
+For those who would like to work on this data for your group project, you could combine it with behavioural analyses we discussed 2 weeks ago. You can also focus only on these biometrics and perform more sophisticated analyses, e.g. using machine learning techniques, mixed effects models. TrueID is participant’s ID that can be matched between different sorts of files, such as the pupil size, heart rate and behaviour. ID is only applicable within a single file.
+
+If you have any questions, I will be available at 4pm on Webex as well as anytime on Discussion Board or by email.
+
+Good luck!

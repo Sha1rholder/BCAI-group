@@ -1,0 +1,35 @@
+%% eyetracking data
+
+% Row: row index
+% Timestamp: real timestamp
+% ET_GazeLeftx: x position of left gaze
+% ET_GazeLefty: y position of left gaze
+% ET_GazeRightx: x position of right gaze
+% ET_GazeRIghty: y position of right gaze
+
+% ET_PupilLeft: size of left pupil
+% RT_PupilRgith: size of right pupil
+% decphase: which decision
+% eyedistance: distance between two pupils
+% phase: which phase
+% round: which round
+% X: x position of two pupils
+% Y: y position of two pupils
+% choice: which choice (4 choices per decision screen)
+% PicID: picture's ID
+% schemas: schemna's ID
+% chosen: the chosen picture's ID
+
+%% heart rate and pupil size
+% heart rate: the adjusted heart rate
+% phase: phase index
+% round: round index
+% change: change condition
+% risk: risk level
+% novelty: novelty condition
+% performance: adjusted payoff
+% RPE: reward perdicition error
+% AEPpayoff: accumulative experienced payoff 
+% ID: ID
+% half: the first or the second half
+% times: relative timestamp from 0 to 1

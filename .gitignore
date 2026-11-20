@@ -1,0 +1,11 @@
+.local
+
+.venv
+__pycache__
+
+/output/
+
+/data/eye_tracking/eyetracking/
+/experiment/Schema paintings/
+/iMotions_intro.mp4
+.extract-data-*/

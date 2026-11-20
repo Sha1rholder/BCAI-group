@@ -1,0 +1,6 @@
+* text=auto
+*.csv -diff
+*.pdf -diff
+uv.lock -diff
+
+archives/*.7z filter=lfs diff=lfs merge=lfs -text
